@@ -8,6 +8,9 @@ import './primitives-v8.css'
 // uncomment it for testing
 // import './primitives-v7.css'
 
+// Load JupyterLab CSS properties
+import './jp-light-variables.css'
+
 export const globalTypes = toolbarTypes
 export const decorators = [withThemeProvider, withSurroundingElements]
 
