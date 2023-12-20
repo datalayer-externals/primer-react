@@ -100,7 +100,7 @@ const jpTheme = {
   },
   space: ['0', '4px', '8px', '16px', '24px', '32px', '40px', '48px', '64px', '80px', '96px', '112px', '128px'],
   colorSchemes: {
-    jupyter: {
+    light: {
       colors: {
         canvasDefaultTransparent: 'rgba(255,255,255,0)',
         pageHeaderBg: 'var(--jp-layout-color1)',
@@ -173,26 +173,26 @@ const jpTheme = {
           },
         },
         codemirror: {
-          text: 'var(--jp-ui-font-color1)',
-          bg: 'var(--jp-ui-inverse-font-color1)',
-          guttersBg: 'var(--jp-ui-inverse-font-color1)',
+          text: 'var(--jp-content-font-color1)',
+          bg: 'var(--jp-layout-color0)',
+          guttersBg: 'var(--jp-layout-color2)',
           guttermarkerText: 'var(--jp-ui-inverse-font-color1)',
           guttermarkerSubtleText: 'var(--jp-ui-font-color3)',
           linenumberText: 'var(--jp-ui-font-color2)',
-          cursor: 'var(--jp-ui-font-color1)',
-          selectionBg: 'var(--jp-brand-color0)',
-          activelineBg: 'rgba(234,238,242,0.5)',
+          cursor: 'var(--jp-editor-cursor-color)',
+          selectionBg: 'var(--jp-editor-selected-background)',
+          activelineBg: 'color-mix(in srgb, var(--jp-layout-color3) 25%, transparent)',
           matchingbracketText: 'var(--jp-ui-font-color1)',
           linesBg: 'var(--jp-ui-inverse-font-color1)',
           syntax: {
-            comment: 'var(--jp-ui-font-color1)',
-            constant: '#0550ae',
+            comment: 'var(--jp-mirror-editor-comment-color)',
+            constant: 'var(--jp-mirror-editor-property-color)',
             entity: 'var(--jp-info-color1)',
-            keyword: 'var(--jp-error-color1)',
+            keyword: 'var(--jp-mirror-editor-keyword-color)',
             storage: 'var(--jp-error-color1)',
-            string: '#0a3069',
-            support: '#0550ae',
-            variable: '#953800',
+            string: 'var(--jp-mirror-editor-string-color)',
+            support: 'var(--jp-mirror-editor-property-color)',
+            variable: 'var(--jp-mirror-editor-variable-color)',
           },
         },
         checks: {
@@ -250,11 +250,11 @@ const jpTheme = {
           loglineCommandText: '#54aeff',
           loglineSectionText: '#4ac26b',
           ansi: {
-            black: 'var(--jp-ui-font-color1)',
+            black: '#24292f',
             blackBright: '#32383f',
-            white: 'var(--jp-border-color1)',
-            whiteBright: 'var(--jp-border-color1)',
-            gray: 'var(--jp-layout-color4)',
+            white: '#d0d7de',
+            whiteBright: '#d0d7de',
+            gray: '#8c959f',
             red: '#ff8182',
             redBright: '#ffaba8',
             green: '#4ac26b',
@@ -621,16 +621,550 @@ const jpTheme = {
         },
       },
     },
+    dark: {
+      colors: {
+        canvasDefaultTransparent: 'rgba(255,255,255,0)',
+        pageHeaderBg: 'var(--jp-layout-color1)',
+        marketingIcon: {
+          primary: 'var(--jp-brand-color1)',
+          secondary: 'var(--jp-brand-color3)',
+        },
+        diffBlob: {
+          addition: {
+            numText: 'var(--jp-ui-font-color1)',
+            fg: 'var(--jp-ui-font-color1)',
+            numBg: 'var(--jp-success-color2)',
+            lineBg: 'var(--jp-success-color3)',
+            wordBg: 'var(--jp-success-color0)',
+          },
+          deletion: {
+            numText: 'var(--jp-ui-font-color1)',
+            fg: 'var(--jp-ui-font-color1)',
+            numBg: 'var(--jp-error-color2)',
+            lineBg: 'var(--jp-error-color3)',
+            wordBg: 'var(--jp-error-color0)',
+          },
+          hunk: {
+            numBg: 'var(--jp-brand-color0)',
+          },
+          expander: {
+            icon: 'var(--jp-ui-font-color2)',
+          },
+        },
+        diffstat: {
+          deletionBorder: 'var(--jp-border-color1)',
+          additionBorder: 'var(--jp-border-color1)',
+          additionBg: 'var(--jp-accent-color1)',
+        },
+        searchKeyword: {
+          hl: 'var(--jp-warn-color3)',
+        },
+        prettylights: {
+          syntax: {
+            comment: 'var(--jp-ui-font-color3)',
+            constant: '#0550ae',
+            entity: '#6639ba',
+            storageModifierImport: 'var(--jp-ui-font-color1)',
+            entityTag: '#116329',
+            keyword: 'var(--jp-error-color1)',
+            string: '#0a3069',
+            variable: '#953800',
+            brackethighlighterUnmatched: '#82071e',
+            invalidIllegalText: 'var(--jp-layout-color1)',
+            invalidIllegalBg: '#82071e',
+            carriageReturnText: 'var(--jp-layout-color1)',
+            carriageReturnBg: 'var(--jp-error-color1)',
+            stringRegexp: '#116329',
+            markupList: '#3b2300',
+            markupHeading: '#0550ae',
+            markupItalic: 'var(--jp-ui-font-color1)',
+            markupBold: 'var(--jp-ui-font-color1)',
+            markupDeletedText: '#82071e',
+            markupDeletedBg: 'var(--jp-error-color3)',
+            markupInsertedText: '#116329',
+            markupInsertedBg: 'var(--jp-success-color3)',
+            markupChangedText: '#953800',
+            markupChangedBg: '#ffd8b5',
+            markupIgnoredText: 'var(--jp-layout-color2)',
+            markupIgnoredBg: '#0550ae',
+            metaDiffRange: 'var(--jp-info-color1)',
+            brackethighlighterAngle: '#57606a',
+            sublimelinterGutterMark: 'var(--jp-layout-color4)',
+            constantOtherReferenceLink: '#0a3069',
+          },
+        },
+        codemirror: {
+          text: 'var(--jp-content-font-color1)',
+          bg: 'var(--jp-layout-color0)',
+          guttersBg: 'var(--jp-layout-color2)',
+          guttermarkerText: 'var(--jp-ui-inverse-font-color1)',
+          guttermarkerSubtleText: 'var(--jp-ui-font-color3)',
+          linenumberText: 'var(--jp-ui-font-color2)',
+          cursor: 'var(--jp-editor-cursor-color)',
+          selectionBg: 'var(--jp-editor-selected-background)',
+          activelineBg: 'color-mix(in srgb, var(--jp-layout-color3) 25%, transparent)',
+          matchingbracketText: 'var(--jp-ui-font-color1)',
+          linesBg: 'var(--jp-ui-inverse-font-color1)',
+          syntax: {
+            comment: 'var(--jp-mirror-editor-comment-color)',
+            constant: 'var(--jp-mirror-editor-property-color)',
+            entity: 'var(--jp-info-color1)',
+            keyword: 'var(--jp-mirror-editor-keyword-color)',
+            storage: 'var(--jp-error-color1)',
+            string: 'var(--jp-mirror-editor-string-color)',
+            support: 'var(--jp-mirror-editor-property-color)',
+            variable: 'var(--jp-mirror-editor-variable-color)',
+          },
+        },
+        checks: {
+          bg: 'var(--jp-ui-font-color1)',
+          textPrimary: 'var(--jp-layout-color1)',
+          textSecondary: 'var(--jp-layout-color4)',
+          textLink: '#54aeff',
+          btnIcon: '#afb8c1',
+          btnHoverIcon: 'var(--jp-layout-color1)',
+          btnHoverBg: 'rgba(255,255,255,0.125)',
+          inputText: 'var(--jp-layout-color2)',
+          inputPlaceholderText: 'var(--jp-layout-color4)',
+          inputFocusText: 'var(--jp-layout-color4)',
+          inputBg: '#32383f',
+          donutError: '#fa4549',
+          donutPending: '#bf8700',
+          donutSuccess: 'var(--jp-accent-color1)',
+          donutNeutral: '#afb8c1',
+          dropdownText: '#afb8c1',
+          dropdownBg: '#32383f',
+          dropdownBorder: '#424a53',
+          dropdownShadow: 'rgba(31,35,40,0.3)',
+          dropdownHoverText: 'var(--jp-layout-color1)',
+          dropdownHoverBg: '#424a53',
+          dropdownBtnHoverText: 'var(--jp-layout-color1)',
+          dropdownBtnHoverBg: '#32383f',
+          scrollbarThumbBg: '#57606a',
+          headerLabelText: 'var(--jp-border-color1)',
+          headerLabelOpenText: 'var(--jp-layout-color1)',
+          headerBorder: '#32383f',
+          headerIcon: 'var(--jp-layout-color4)',
+          lineText: 'var(--jp-border-color1)',
+          lineNumText: 'rgba(140,149,159,0.75)',
+          lineTimestampText: 'var(--jp-layout-color4)',
+          lineHoverBg: '#32383f',
+          lineSelectedBg: 'rgba(33,139,255,0.15)',
+          lineSelectedNumText: '#54aeff',
+          lineDtFmText: 'var(--jp-ui-font-color1)',
+          lineDtFmBg: 'var(--jp-warn-color2)',
+          gateBg: 'rgba(125,78,0,0.15)',
+          gateText: 'var(--jp-border-color1)',
+          gateWaitingText: '#d4a72c',
+          stepHeaderOpenBg: '#32383f',
+          stepErrorText: '#ff8182',
+          stepWarningText: '#d4a72c',
+          loglineText: 'var(--jp-layout-color4)',
+          loglineNumText: 'rgba(140,149,159,0.75)',
+          loglineDebugText: '#c297ff',
+          loglineErrorText: 'var(--jp-border-color1)',
+          loglineErrorNumText: '#ff8182',
+          loglineErrorBg: 'rgba(164,14,38,0.15)',
+          loglineWarningText: 'var(--jp-border-color1)',
+          loglineWarningNumText: '#d4a72c',
+          loglineWarningBg: 'rgba(125,78,0,0.15)',
+          loglineCommandText: '#54aeff',
+          loglineSectionText: '#4ac26b',
+          ansi: {
+            black: '#0d1117',
+            blackBright: '#161b22',
+            white: '#b1bac4',
+            whiteBright: '#b1bac4',
+            gray: '#6e7681',
+            red: '#ff7b72',
+            redBright: '#ffa198',
+            green: '#3fb950',
+            greenBright: '#56d364',
+            yellow: '#d29922',
+            yellowBright: '#e3b341',
+            blue: '#58a6ff',
+            blueBright: '#79c0ff',
+            magenta: '#bc8cff',
+            magentaBright: '#d2a8ff',
+            cyan: '#76e3ea',
+            cyanBright: '#b3f0ff',
+          },
+        },
+        project: {
+          headerBg: 'var(--jp-ui-font-color1)',
+          sidebarBg: 'var(--jp-ui-inverse-font-color1)',
+          gradientIn: 'var(--jp-ui-inverse-font-color1)',
+          gradientOut: 'rgba(255,255,255,0)',
+        },
+        mktg: {
+          btn: {
+            bg: '#1b1f23',
+          },
+        },
+        control: {
+          borderColor: {
+            emphasis: 'var(--jp-inverse-border-color)',
+          },
+        },
+        avatar: {
+          bg: 'var(--jp-ui-inverse-font-color1)',
+          border: 'var(--jp-border-color1)',
+          stackFade: '#afb8c1',
+          stackFadeMore: 'var(--jp-border-color1)',
+        },
+        topicTag: {
+          border: 'rgba(0,0,0,0)',
+        },
+        counter: {
+          border: 'rgba(0,0,0,0)',
+        },
+        selectMenu: {
+          backdropBorder: 'rgba(0,0,0,0)',
+          tapHighlight: 'rgba(175,184,193,0.5)',
+          tapFocusBg: '#b6e3ff',
+        },
+        overlay: {
+          backdrop: 'rgba(140,149,159,0.2)',
+        },
+        header: {
+          text: 'var(--jp-ui-inverse-font-color1)',
+          bg: 'var(--jp-inverse-layout-color1)',
+          divider: 'var(--jp-inverse-layout-color2)',
+          logo: 'var(--jp-ui-inverse-font-color1)',
+        },
+        headerSearch: {
+          bg: 'var(--jp-ui-font-color1)',
+          border: '#57606a',
+        },
+        sidenav: {
+          selectedBg: 'var(--jp-ui-inverse-font-color1)',
+        },
+        menu: {
+          bgActive: 'rgba(0,0,0,0)',
+        },
+        input: {
+          disabledBg: 'var(--jp-inverse-layout-color2)',
+        },
+        timeline: {
+          badgeBg: 'var(--jp-layout-color2)',
+        },
+        ansi: {
+          black: '#484f58',
+          blackBright: '#6e7681',
+          white: '#b1bac4',
+          whiteBright: '#ffffff',
+          gray: '#6e7681',
+          red: '#ff7b72',
+          redBright: '#ffa198',
+          green: '#3fb950',
+          greenBright: '#56d364',
+          yellow: '#d29922',
+          yellowBright: '#e3b341',
+          blue: '#58a6ff',
+          blueBright: '#79c0ff',
+          magenta: '#bc8cff',
+          magentaBright: '#d2a8ff',
+          cyan: '#39c5cf',
+          cyanBright: '#56d4dd',
+        },
+        btn: {
+          text: 'var(--jp-ui-font-color1)',
+          bg: 'var(--jp-layout-color1)',
+          border: 'var(--jp-border-color1)',
+          hoverBg: 'var(--jp-layout-color2)',
+          hoverBorder: 'var(--jp-border-color1)',
+          activeBg: 'var(--jp-layout-color3)',
+          activeBorder: 'var(--jp-border-color1)',
+          selectedBg: 'var(--jp-layout-color0)',
+          counterBg: 'var(--jp-layout-color4)',
+          primary: {
+            text: 'var(--jp-ui-inverse-font-color1)',
+            bg: 'var(--jp-accent-color1)',
+            border: 'var(--jp-border-color1)',
+            hoverBg: 'var(--jp-accent-color2)',
+            hoverBorder: 'var(--jp-border-color1)',
+            selectedBg: 'var(--jp-accent-color0)',
+            disabledText: 'var(--jp-ui-inverse-font-color2)',
+            disabledBg: 'var(--jp-accent-color3)',
+            disabledBorder: 'var(--jp-border-color1)',
+            icon: 'var(--jp-ui-inverse-font-color2)',
+            counterBg: 'var(--jp-inverse-layout-color3)',
+          },
+          outline: {
+            text: 'var(--jp-brand-color1)',
+            hoverText: 'var(--jp-ui-inverse-font-color1)',
+            hoverBg: 'var(--jp-brand-color1)',
+            hoverBorder: 'var(--jp-border-color1)',
+            hoverCounterBg: 'var(--jp-brand-color4)',
+            selectedText: 'var(--jp-ui-inverse-font-color1)',
+            selectedBg: 'var(--jp-brand-color2)',
+            selectedBorder: 'var(--jp-border-color1)',
+            disabledText: 'var(--jp-brand-color3)',
+            disabledBg: 'var(--jp-layout-color1)',
+            disabledCounterBg: 'var(--jp-brand-color4)',
+            counterBg: 'var(--jp-brand-color4)',
+            counterFg: 'var(--jp-brand-color3)',
+            hoverCounterFg: 'var(--jp-ui-inverse-font-color1)',
+            disabledCounterFg: 'var(--jp-brand-color3)',
+          },
+          danger: {
+            text: 'var(--jp-error-color0)',
+            hoverText: 'var(--jp-ui-inverse-font-color1)',
+            hoverBg: 'var(--jp-error-color1)',
+            hoverBorder: 'var(--jp-border-color1)',
+            hoverCounterBg: 'var(--jp-brand-color4)',
+            selectedText: 'var(--jp-ui-inverse-font-color1)',
+            selectedBg: 'var(--jp-error-color0)',
+            selectedBorder: 'var(--jp-border-color1)',
+            disabledText: 'var(--jp-error-color3)',
+            disabledBg: 'var(--jp-layout-color1)',
+            disabledCounterBg: 'var(--jp-error-color3)',
+            counterBg: 'var(--jp-error-color2)',
+            icon: 'var(--jp-error-color0)',
+            hoverIcon: 'var(--jp-ui-inverse-font-color1)',
+            counterFg: 'var(--jp-error-color1)',
+            hoverCounterFg: 'var(--jp-ui-inverse-font-color1)',
+            disabledCounterFg: 'var(--jp-error-color3)',
+          },
+          inactive: {
+            bg: 'var(--jp-layout-color2)',
+            text: 'var(--jp-ui-font-color2)',
+          },
+        },
+        underlinenav: {
+          icon: 'var(--jp-ui-font-color3)',
+          borderHover: 'var(--jp-border-color2)',
+        },
+        actionListItem: {
+          inlineDivider: 'rgba(208,215,222,0.48)',
+          default: {
+            hoverBg: 'rgba(208,215,222,0.32)',
+            hoverBorder: 'rgba(0,0,0,0)',
+            activeBg: 'rgba(208,215,222,0.48)',
+            activeBorder: 'rgba(0,0,0,0)',
+            selectedBg: 'rgba(208,215,222,0.24)',
+          },
+          danger: {
+            hoverBg: 'var(--jp-error-color0)',
+            activeBg: 'var(--jp-error-color3)',
+            hoverText: 'var(--jp-error-color2)',
+          },
+        },
+        switchTrack: {
+          bg: 'var(--jp-layout-color2)',
+          hoverBg: 'hsla(210,24%,90%,1)',
+          activeBg: 'hsla(210,24%,88%,1)',
+          disabledBg: 'var(--jp-layout-color4)',
+          fg: 'var(--jp-ui-font-color2)',
+          disabledFg: 'var(--jp-ui-inverse-font-color1)',
+          border: 'rgba(0,0,0,0)',
+          checked: {
+            bg: 'var(--jp-brand-color1)',
+            hoverBg: '#0860CA',
+            activeBg: '#0757BA',
+            fg: 'var(--jp-ui-inverse-font-color1)',
+            disabledFg: 'var(--jp-ui-inverse-font-color1)',
+            border: 'rgba(0,0,0,0)',
+          },
+        },
+        switchKnob: {
+          bg: 'var(--jp-ui-inverse-font-color1)',
+          disabledBg: 'var(--jp-layout-color1)',
+          border: 'var(--jp-inverse-border-color)',
+          checked: {
+            bg: 'var(--jp-ui-inverse-font-color1)',
+            disabledBg: 'var(--jp-layout-color1)',
+            border: 'var(--jp-brand-color1)',
+          },
+        },
+        segmentedControl: {
+          bg: 'var(--jp-layout-color2)',
+          button: {
+            bg: 'var(--jp-inverse-layout-color1)',
+            hover: {
+              bg: 'var(--jp-inverse-layout-color2)',
+            },
+            active: {
+              bg: 'var(--jp-inverse-layout-color3)',
+            },
+            selected: {
+              border: 'var(--jp-border-color3)',
+            },
+          },
+        },
+        treeViewItem: {
+          chevron: {
+            hoverBg: 'var(--jp-inverse-layout-color1)',
+          },
+          directory: {
+            fill: 'var(--jp-brand-color3)',
+          },
+        },
+        fg: {
+          default: 'var(--jp-ui-font-color1)',
+          muted: 'var(--jp-ui-font-color2)',
+          subtle: 'var(--jp-ui-font-color3)',
+          onEmphasis: 'var(--jp-ui-inverse-font-color1)',
+        },
+        canvas: {
+          default: 'var(--jp-ui-inverse-font-color1)',
+          overlay: 'var(--jp-ui-inverse-font-color1)',
+          inset: 'var(--jp-layout-color1)',
+          subtle: 'var(--jp-layout-color1)',
+        },
+        border: {
+          default: 'var(--jp-border-color1)',
+          muted: 'var(--jp-border-color2)',
+          subtle: 'var(--jp-border-color3)',
+        },
+        neutral: {
+          emphasisPlus: 'var(--jp-layout-color3)',
+          emphasis: 'var(--jp-layout-color2)',
+          muted: 'var(--jp-layout-color1)',
+          subtle: 'var(--jp-layout-color0)',
+        },
+        accent: {
+          fg: 'var(--jp-brand-color2)',
+          emphasis: 'var(--jp-brand-color3)',
+          muted: 'var(--jp-brand-color1)',
+          subtle: 'var(--jp-brand-color0)',
+        },
+        success: {
+          fg: 'var(--jp-success-color2)',
+          emphasis: 'var(--jp-success-color3)',
+          muted: 'var(--jp-success-color1)',
+          subtle: 'var(--jp-success-color0)',
+        },
+        attention: {
+          fg: 'var(--jp-warn-color2)',
+          emphasis: 'var(--jp-warn-color3)',
+          muted: 'var(--jp-warn-color1)',
+          subtle: 'var(--jp-warn-color0)',
+        },
+        severe: {
+          fg: 'var(--jp-warn-color2)',
+          emphasis: 'var(--jp-warn-color3)',
+          muted: 'var(--jp-warn-color1)',
+          subtle: 'var(--jp-warn-color0)',
+        },
+        danger: {
+          fg: 'var(--jp-error-color2)',
+          emphasis: 'var(--jp-error-color3)',
+          muted: 'var(--jp-error-color1)',
+          subtle: 'var(--jp-error-color0)',
+        },
+        open: {
+          fg: 'var(--jp-success-color2)',
+          emphasis: 'var(--jp-success-color3)',
+          muted: 'var(--jp-success-color1)',
+          subtle: 'var(--jp-success-color0)',
+        },
+        closed: {
+          fg: 'var(--jp-error-color2)',
+          emphasis: 'var(--jp-error-color3)',
+          muted: 'var(--jp-error-color1)',
+          subtle: 'var(--jp-error-color0)',
+        },
+        done: {
+          fg: 'var(--jp-info-color2)',
+          emphasis: 'var(--jp-info-color3)',
+          muted: 'var(--jp-info-color1)',
+          subtle: 'var(--jp-info-color0)',
+        },
+        sponsors: {
+          fg: '#db61a2',
+          emphasis: '#bf4b8a',
+          muted: 'rgba(219,97,162,0.4)',
+          subtle: 'rgba(219,97,162,0.1)',
+        },
+        primer: {
+          fg: {
+            disabled: 'var(--jp-layout-color4)',
+          },
+          canvas: {
+            backdrop: 'rgba(31,35,40,0.5)',
+            sticky: 'rgba(255,255,255,0.95)',
+          },
+          border: {
+            active: '#fd8c73',
+            contrast: 'rgba(31,35,40,0.1)',
+          },
+        },
+      },
+      shadows: {
+        checks: {
+          inputShadow: '0 0 0 1px (obj) => (0, get_1.default)(obj, path)',
+        },
+        mktg: {
+          btn: {
+            shadow: {
+              outline: 'rgb(255 255 255 / 25%) 0 0 0 1px inset',
+              focus: 'rgb(255 255 255 / 25%) 0 0 0 4px',
+              hover:
+                '0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02), 0 42px 33px rgba(255, 255, 255, 0.024), 0 22px 18px rgba(255, 255, 255, 0.028), 0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04), 0 3px 2px rgba(255, 255, 255, 0.07)',
+              hoverMuted: 'rgb(255 255 255) 0 0 0 2px inset',
+            },
+          },
+        },
+        avatar: {
+          childShadow: '0 0 0 2px #0d1117',
+        },
+        overlay: {
+          shadow: '0 0 0 1px #30363d, 0 16px 32px rgba(1,4,9,0.85)',
+        },
+        btn: {
+          shadow: '0 0 transparent',
+          insetShadow: '0 0 transparent',
+          primary: {
+            shadow: '0 0 transparent',
+            insetShadow: '0 0 transparent',
+            selectedShadow: '0 0 transparent',
+          },
+          outline: {
+            hoverShadow: '0 1px 0 rgba(1,4,9,0.1)',
+            hoverInsetShadow: 'inset 0 1px 0 rgba(255,255,255,0.03)',
+            selectedShadow: '0 0 transparent',
+          },
+          danger: {
+            hoverShadow: '0 0 transparent',
+            hoverInsetShadow: '0 0 transparent',
+            selectedShadow: '0 0 transparent',
+          },
+        },
+        shadow: {
+          small: '0 0 transparent',
+          medium: '0 3px 6px #010409',
+          large: '0 8px 24px #010409',
+          extraLarge: '0 12px 48px #010409',
+        },
+        primer: {
+          shadow: {
+            highlight: '0 0 transparent',
+            inset: '0 0 transparent',
+          },
+        },
+      },
+    },
   },
 }
 
 export const withThemeProvider = (Story: React.FC<React.PropsWithChildren<StoryContext>>, context: StoryContext) => {
+  const jpStyleSheet = React.useMemo(() => {
+    const sheet = new CSSStyleSheet()
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet]
+    return sheet
+  }, [])
+
   // used for testing ThemeProvider.stories.tsx
-  if (context.parameters.disableThemeDecorator) return Story(context)
+  if (context.parameters.disableThemeDecorator) {
+    jpStyleSheet.replaceSync('')
+    return Story(context)
+  }
 
   const {colorScheme} = context.globals
 
   if (colorScheme === 'all') {
+    jpStyleSheet.replaceSync('')
     return (
       <Box
         sx={{
@@ -665,8 +1199,18 @@ export const withThemeProvider = (Story: React.FC<React.PropsWithChildren<StoryC
     )
   }
 
+  const mode = colorScheme.includes('dark') ? 'dark' : 'light'
+
+  React.useMemo(() => {
+    const target = mode === 'light' ? import('./jp-light-variables.css') : import('./jp-dark-variables.css')
+    // eslint-disable-next-line github/no-then
+    target.then(rules => {
+      jpStyleSheet.replaceSync(rules)
+    })
+  }, [jpStyleSheet, mode])
+
   return (
-    <ThemeProvider theme={jpTheme} colorMode={'light'} dayScheme={'jupyter'} nightScheme={'jupyter'}>
+    <ThemeProvider theme={jpTheme} colorMode={mode} dayScheme={'light'} nightScheme={'dark'}>
       <GlobalStyle />
       <BaseStyles>
         <div id="html-addon-root">{Story(context)}</div>
